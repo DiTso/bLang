@@ -19,8 +19,8 @@
 Language selecting 
 ```
 <select name="countries" id="select_" onchange="window.location.href = $(this).val()">
-    <option value='[(ru_url)]' [!if?is=`[(_lang)]:=:ru` &then=`selected`!]>Русский</option>
-    <option value='[(en_url])' [!if?is=`[(_lang)]:=:en` &then=`selected`!]>English</option>
+    <option value='[(_ru_url)]' [!if?is=`[(_lang)]:=:ru` &then=`selected`!]>Русский</option>
+    <option value='[(_en_url])' [!if?is=`[(_lang)]:=:en` &then=`selected`!]>English</option>
 </select>
 ```
 
