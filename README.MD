@@ -57,9 +57,10 @@ tpl-`MenuRowTpl`:
 ```
 
 
-switch
-``` [[switch? &name=`pagetitle`]] ``` //if you know the name of the field
-``` [[switch? &pl=`pagetitle]] ``` //if you know the name of the placeholder
+Switch
+
+ ``` [[switch? &name=`pagetitle`]] ``` //if you know the name of the field
+ ``` [[switch? &pl=`pagetitle]] ```    //if you know the name of the placeholder
 
 ##Automatic translation
   if you need an automatic translation into other languages of the resource you should
