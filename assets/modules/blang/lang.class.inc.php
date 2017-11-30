@@ -58,12 +58,20 @@ if ( ! class_exists( 'LANG' ) )
 			$config['lang'] = $this->lang = $InListLang ? $this->lang : $this->default_lang;
 			$config['root'] = $this->root = $InListLang ? $this->roots[$this->lang] : $this->roots[$this->default_lang];
 
+            $query = '';
+            $q = $_GET;
+            if(!empty($q['q'])){ unset($q['q']); }
+            if(!empty($q['lang'])){ unset($q['lang']); }
+            if(!empty($q)){
+                $query = '?'.http_build_query($q);
+            }
+
 			foreach($this->langs as $key=>$value){
 			  
 				if ($this->MODX->config['site_start'] != $id){
-					$config[$value.'_url'] = $this->roots[$value].'[~'.$id.'~]';
+					$config[$value.'_url'] = $this->roots[$value].'[~'.$id.'~]'.$query;
 				} else {
-					$config[$value.'_url'] = $this->roots[$value];
+					$config[$value.'_url'] = $this->roots[$value].$query;
 				}
 			}
 
