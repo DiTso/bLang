@@ -16,12 +16,27 @@
 
 ### Examples
 
+bLang placeholders
+```
+[(_root)] - link to homepage on current language
+[(_lang)] - current language (ru,en,ua)
+[(__someplaceholder)] - you can add different placeholders in bLang Module
+```
+
 Language selecting 
 ```
 <select name="countries" id="select_" onchange="window.location.href = $(this).val()">
     <option value='[(ru_url)]' [!if?is=`[(_lang)]:=:ru` &then=`selected`!]>Русский</option>
     <option value='[(en_url)]' [!if?is=`[(_lang)]:=:en` &then=`selected`!]>English</option>
 </select>
+```
+
+```
+<ul class="nav inline-nav lang-select">
+    <li [!if?is=`[(_lang)]:=:ua` &then=`class="active"`!]><a href="[(_ua_url)]">Укр</a></li>
+    <li [!if?is=`[(_lang)]:=:ru` &then=`class="active"`!]><a href="[(_ru_url)]">Рус</a></li>
+    <li [!if?is=`[(_lang)]:=:en` &then=`class="active"`!]><a href="[(_en_url)]">Eng</a></li>
+</ul>
 ```
 
 
@@ -56,11 +71,26 @@ tpl-`MenuRowTpl`:
 
 ```
 
+DocLister
+```
+[[DocLister? 
+&tvPrefix=`` 
+&tvList=`pagetitle_ua,pagetitle_ru,pagetitle_en` 
+&tpl=`@CODE:<li data-value="[(_root)][+url+]">[+pagetitle_[(_lang)]+]</li>`
+&orderBy=`menuindex ASC` 
+&parents=`17`]]
+```
+
+
+
+
 
 Switch
 
  ``` [[switch? &name=`pagetitle`]] ``` //if you know the name of the field
  ``` [[switch? &pl=`pagetitle]] ```    //if you know the name of the placeholder
+
+
 
 ##Automatic translation
   if you need an automatic translation into other languages of the resource you should
